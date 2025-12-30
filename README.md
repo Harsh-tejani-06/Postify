@@ -32,7 +32,9 @@
    🖼️ Profile Picture
 
 ->Display user profile picture
+
 ->Default avatar fallback
+
 ->Profile picture visible in Profile page
 
-Likes list# Postify
+
