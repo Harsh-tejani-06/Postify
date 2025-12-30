@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likes</title>
+
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #ff4d4d;
+            margin-bottom: 20px;
+        }
+
+        .post {
+            max-width: 500px;
+            margin: auto;
+            background-color: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+
+        .user {
+            background-color: #222;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .user:hover {
+            background-color: #ff4d4d;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .empty {
+            text-align: center;
+            color: #aaa;
+            font-size: 15px;
+        }
+        a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #222;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.user img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ff4d4d;
+    background-color: #111;
+}
+
+.user a {
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.user:hover {
+    background-color: #ff4d4d;
+}
+
+.user:hover a {
+    color: #000;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="post">
+        <h2>❤️ Liked By</h2>
+
+        <% if (User_names.length > 0) { %>
+            <% for (let i = 0; i < User_names.length; i++) { %>
+                <div class="user">
+
+                    <img src="/images/uploads/<%= User_names[i].image %>" alt="">
+                    <a href="/posts/<%= User_names[i].username %>"><%= User_names[i].username %> </a>
+                </div>
+            <% } %>
+        <% } else { %>
+            <p class="empty">No likes yet</p>
+        <% } %>
+    </div>
+
+</body>
+</html>

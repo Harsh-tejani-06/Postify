@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momgodb</title>
+    <style>
+    body {
+        background-color: #121212;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    h1, h4 {
+        text-align: center;
+    }
+    h4{
+        color:#0056b3;
+    }
+
+    form {
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        height: 300px;
+        width: 400px;
+    }
+
+    input {
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background-color: #252525;
+        color: #fff;
+        width: 350px;
+    }
+
+    button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: green;
+        color: #fff;
+        cursor: pointer;
+        width: 370px;
+        margin: 10px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+    button a{
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+    <h1>Create User</h1>
+    <form action="/register" method="post">
+
+        <input type="text" name="name" placeholder="Username">
+        <input type="email" name="email" placeholder="email">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Create User</button>
+        <a href="/login" class="href">Log in</a>
+    </form>
+    
+
+</body>
+
+</html>

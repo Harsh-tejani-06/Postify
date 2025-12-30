@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            /* text-align: center; */
+        }
+
+        a {
+            color: #ff4d4d;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #222;
+        }
+
+        a:hover {
+            background-color: #ff4d4d;
+            color: black;
+        }
+
+        h3,
+        h5 {
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+        }
+
+        textarea {
+            background-color: #333;
+            color: white;
+            border: 1px solid white;
+            padding: 10px;
+            width: 100%;
+            max-width: 500px;
+            height: 100px;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        button {
+            background-color: rgb(11, 155, 233);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            width: 150px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(15, 100, 246);
+            color: black;
+        }
+
+        .post {
+            width: 100%;
+            max-width: 600px;
+            /* background-color: #222; */
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            /* Only adds space between posts */
+            border-radius: 10px;
+            /* box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1); */
+        }
+
+        .box {
+            display: inline-block;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 18px;
+            color: #ff4d4d;
+        }
+
+        p {
+            font-size: 14px;
+            color: #ddd;
+            margin-top: 5px;
+        }
+/* Ensure box container has proper spacing */
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Ensure text inside post has spacing */
+.box h4,
+.box p {
+    margin-bottom: 10px;
+}
+
+/* Button group styling */
+.button-group {
+    display: flex;
+    justify-content: start; /* Aligns buttons to the left */
+    gap: 15px; /* Space between buttons */
+    margin-top: 10px;
+}
+
+/* Common Button Styles */
+.box a {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+    border: 2px solid transparent;
+    min-width: 70px; /* Ensures uniform button width */
+    text-align: center;
+}
+
+/* Edit Button - Blue */
+.edit-btn {
+    background-color: rgb(11, 155, 233);
+    color: white;
+    border: 2px solid rgb(11, 155, 233);
+}
+
+.edit-btn:hover {
+    background-color: white;
+    color: rgb(11, 155, 233);
+    border: 2px solid rgb(11, 155, 233);
+}
+
+/* Fix Logout Button Positioning */
+a[href="/logout"] {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10; /* Ensures it stays on top */
+}
+</style>
+</head>
+<body>
+    <form action="/edit/<%=post._id%>" method="post">
+        <textarea name="content" placeholder="Share your idea"><%=post.content%></textarea>
+        <button type="submit">Edit a post</button>
+    </form>
+</body>
+
+</html>
