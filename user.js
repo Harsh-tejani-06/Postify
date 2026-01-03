@@ -15,8 +15,32 @@ const userSchema = new mongoose.Schema({
   images:{
     type:String,
     default:"Defult.png"
+  },
+  Private:{
+    type:Boolean,
+    default:false
+  },
+  friends: [{
+  type: mongoose.Schema.Types.ObjectId,
+  ref: "user"
+}],
+
+friendRequests: [{
+  from: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user"
+  },
+  status: {
+    type: String,
+    enum: ["pending", "accepted"],
+    default: "pending"
   }
-  
+}],
+sentRequests:[{
+  type:mongoose.Schema.Types.ObjectId,
+  ref:"user"
+}]
+
 });
 
 // Use 'userSchema' instead of the incorrect 'userschema'
