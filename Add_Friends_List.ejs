@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Friends</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #ff4d4d;
+        }
+
+        .user-card {
+            background-color: #222;
+            border: 1px solid #333;
+            padding: 15px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #444;
+            overflow: hidden;
+        }
+
+        .pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .username {
+            color: aliceblue;
+            text-decoration: none;
+        }
+        .username h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        /* Default Add Button */
+        .add-btn {
+            background-color: #9b59b6;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            border: 1px solid #9b59b6;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background-color: white;
+            color: #9b59b6;
+        }
+
+        /* Request Sent (Disabled) Style */
+        .disabled {
+            background-color: #333;       /* Dark Gray */
+            color: #888;                  /* Light Gray Text */
+            border: 1px solid #555;       /* Gray Border */
+            cursor: pointer;              /* Arrow Cursor */
+            /* pointer-events: none;         Unclickable */
+        }
+        .disabled:hover {
+            background-color: #333;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Find New Friends</h2>
+<a href="/profile" style="color:#08ef27; display:block; margin-bottom:20px;">
+    ← Back to Profile
+</a>
+
+<% if (allUsers.length > 0) { %>
+    <% allUsers.forEach(friend => { %>
+
+        <div class="user-card">
+            <div class="user-info">
+                <div class="pic">
+                    <img src="/images/uploads/<%= friend.images || 'default.png' %>">
+                </div>
+
+                <% if (!friend.Private) { %>
+                    <a class="username" href="/posts/<%= friend.Username %>">
+                        <h3><%= friend.Username %></h3>
+                    </a>
+                <% } else { %>
+                    <span class="username">
+                        <h3><%= friend.Username %> 🔒</h3>
+                    </span>
+                <% } %>
+            </div>
+
+            <% const isRequestSent = sentRequests.includes(friend._id.toString()); %>
+
+            <% if (isRequestSent) { %>
+                
+                <a href="/pull-friend-request/<%= friend._id %>" class="add-btn disabled">
+                    Request Sent 🕒
+                </a>
+
+            <% } else { %>
+
+                <a href="/add-friend/<%= friend._id %>" class="add-btn">
+                    + Add Friend
+                </a>
+
+            <% } %>
+            </div>
+
+    <% }) %>
+<% } else { %>
+    <p>No new users found.</p>
+<% } %>
+
+</body>
+</html>

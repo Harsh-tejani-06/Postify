@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Friends</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Back Button Style */
+        a.back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #ff4d4d;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        a.back:hover { text-decoration: underline; }
+
+        h2 { border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        /* Friend Card Container */
+        .friend {
+            background: #222;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Pushes content to edges */
+            margin-bottom: 10px;
+            border: 1px solid #333;
+        }
+
+        /* Group Image and Name together */
+        .friend-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #555;
+        }
+
+        .friend-name {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .friend-name:hover { color: #ff4d4d; }
+
+        /* Red Remove Button Style */
+        .btn-remove {
+            background-color: transparent;
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-remove:hover {
+            background-color: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+ <a href="/profile" class="back">← Back to Profile</a>
+ <h2>Your Friends (<%= friends.length %>)</h2>
+
+ <% if (friends.length > 0) { %>
+    <% friends.forEach(friend => { %>
+        
+        <div class="friend">
+            <div class="friend-info">
+                <img src="/images/uploads/<%= friend.images %>" alt="User Image">
+                <a href="/profile/<%= friend._id %>" class="friend-name">
+                    <%= friend.Username %>
+                </a>
+            </div>
+
+            <a href="/remove-friend/<%= friend._id %>" class="btn-remove">
+                Remove
+            </a>
+        </div>
+
+    <% }) %>
+ <% } else { %>
+    <p style="color: #777;">You have no friends added yet.</p>
+ <% } %>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Status</title>
+
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: #111;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+
+        h2 {
+            color: #ff4d4d;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+
+        .status {
+            color: #00e676;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: rgb(11, 155, 233);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: white;
+            color: rgb(11, 155, 233);
+        }
+
+        .back {
+            display: block;
+            margin-top: 20px;
+            color: #ff4d4d;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h2>Account Privacy</h2>
+
+        <p>
+            Your account status is
+            <span class="status"><%= Status %></span>
+        </p>
+
+        <form action="/Private-Account" method="post">
+            <button class="btn" type="submit">
+                Make <%= Status === "Private" ? "Public" : "Private" %>
+            </button>
+        </form>
+
+        <a href="/profile" class="back">← Back to Profile</a>
+    </div>
+
+</body>
+</html>
