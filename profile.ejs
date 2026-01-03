@@ -23,11 +23,6 @@
             font-size: 14px;
         }
 
-        .logout-btn:hover {
-            background-color: #ff4d4d;
-            color: black;
-        }
-
         /* ---------------- LOGOUT ---------------- */
         .logout-btn {
             position: absolute;
@@ -36,6 +31,12 @@
             background-color: #222;
             padding: 10px 15px;
             border-radius: 5px;
+            color: #ff4d4d;
+        }
+
+        .logout-btn:hover {
+            background-color: #ff4d4d;
+            color: black;
         }
 
         /* ---------------- PROFILE HEADER ---------------- */
@@ -43,7 +44,10 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+            position: relative;
         }
 
         .profile-pic {
@@ -61,18 +65,94 @@
             object-fit: cover;
         }
 
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
         .profile-info h3 {
             margin: 0;
+            font-size: 24px;
         }
 
         .profile-info h5 {
             margin-top: 5px;
             color: #ccc;
+            margin-bottom: 10px;
         }
 
-        /* ---------------- FORM ---------------- */
+        /* ---------------- TOP BUTTONS ---------------- */
+        .top-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .action-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: white;
+            border: 1px solid transparent; /* Base border */
+        }
+
+        /* Green - Accept Request Style */
+        .btn-requests {
+            background-color: #222;
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        .btn-requests:hover {
+            background-color: #28a745;
+            color: white;
+        }
+
+        /* Purple - Add Friend Style */
+        .btn-add {
+            background-color: #222;
+            border-color: #9b59b6;
+            color: #9b59b6;
+        }
+
+        .btn-add:hover {
+            background-color: #9b59b6;
+            color: white;
+        }
+
+        /* --- NEW CSS: Private Account Button (Crimson Red) --- */
+        .btn-private {
+            background-color: #222;
+            border-color: #ff4757;
+            color: #ff4757;
+        }
+
+        .btn-private:hover {
+            background-color: #ff4757;
+            color: white;
+            box-shadow: 0 0 8px rgba(255, 71, 87, 0.5);
+        }
+
+        /* Orange - Friend List Style */
+        .btn-friend-list {
+            background-color: #222;
+            border-color: #f39c12;
+            color: #f39c12;
+        }
+
+        .btn-friend-list:hover {
+            background-color: #f39c12;
+            color: black;
+        }
+
+        /* ---------------- FORM & FILE UPLOAD ---------------- */
         form {
-            margin-top: 20px;
+            margin-top: 10px;
             display: flex;
             flex-direction: column;
         }
@@ -80,113 +160,165 @@
         textarea {
             background-color: #333;
             color: white;
-            border: 1px solid white;
-            padding: 10px;
+            border: 1px solid #444;
+            padding: 15px;
             width: 100%;
-            max-width: 500px;
-            height: 100px;
-            border-radius: 5px;
+            max-width: 600px;
+            height: 80px;
+            border-radius: 8px;
             resize: none;
+            outline: none;
         }
 
-        button {
+        textarea:focus {
+            border-color: #119be9;
+        }
+
+        /* New Wrapper to align buttons */
+        .form-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        /* Hide the default file input */
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Style the Label to look like a button */
+        .custom-file-upload {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 9px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #555;
+            border-color: white;
+        }
+
+        button.post-btn {
             background-color: rgb(11, 155, 233);
             color: white;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
             width: 150px;
-            margin-top: 10px;
             cursor: pointer;
             border-radius: 5px;
         }
 
-        button:hover {
+        button.post-btn:hover {
             background-color: rgb(15, 100, 246);
-            color: black;
         }
 
         /* ---------------- POSTS ---------------- */
+        h2 {
+            border-left: 4px solid #ff4d4d;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+
         .post {
             max-width: 600px;
             margin-top: 10px;
         }
 
         .box {
-            background-color: #333;
+            background-color: #1a1a1a;
             padding: 15px;
             border-radius: 8px;
-            margin-top: 10px;
+            margin-top: 15px;
             display: flex;
             flex-direction: column;
+            border: 1px solid #333;
         }
 
-        h4 {
+        .box h4 {
             margin: 0;
             font-size: 18px;
             color: #ff4d4d;
         }
 
-        p {
+        .box p {
             font-size: 14px;
             color: #ddd;
             margin: 10px 0;
+            line-height: 1.4;
         }
 
-        /* ---------------- BUTTON GROUP ---------------- */
         .button-group {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             margin-top: 10px;
         }
 
         .edit-btn {
-            background-color: rgb(11, 155, 233);
-            color: white;
-            border: 2px solid rgb(11, 155, 233);
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            min-width: 80px;
-            text-align: center;
+            background-color: transparent;
+            color: #119be9;
+            border: 1px solid #119be9;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
         }
 
         .edit-btn:hover {
-            background-color: white;
-            color: rgb(11, 155, 233);
-        }
-
-        .like-btn {
-            justify-content: space-between;
+            background-color: #119be9;
+            color: white;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- LOGOUT -->
-    <a href="/logout" class="logout-btn">Logout</a>
-
-    <!-- PROFILE HEADER -->
     <div class="profile-header">
         <a href="/profile/<%= user._id%>">
-        <div class="profile-pic">
-            <img src="./images/uploads/<%= user.images %>" alt="Profile Picture">
-        </div></a>
+            <div class="profile-pic">
+                <img src="./images/uploads/<%= user.images %>" alt="Profile Picture">
+            </div>
+        </a>
 
         <div class="profile-info">
             <h3>Hello, <%= user.Username %> 👋🏻 </h3>
             <h5>You can create a post</h5>
+
+            <div class="top-actions">
+                <a href="/friend-requests" class="action-btn btn-requests">
+                    <span>📩</span> Requests
+                </a>
+
+                <a href="/find-friends" class="action-btn btn-add">
+                    <span>➕</span> Add Friend
+                </a>
+                
+                <a href="/Private-Account" class="action-btn btn-private">
+                    <span>🔒</span> Private Account
+                </a>
+
+                <a href="/Friend-List" class="action-btn btn-friend-list">
+                    <span>🧑‍🤝‍🧑</span> Friend List
+                </a>
+            </div>
         </div>
     </div>
 
-    <!-- CREATE POST -->
-    <form action="/create_post" method="post">
-        <textarea name="content" placeholder="Share your idea"></textarea>
-        <button type="submit">Create a post</button>
+    <form action="/create_post" method="post" enctype="multipart/form-data">
+        <textarea name="content" placeholder="What's on your mind?"></textarea>
+        
+        <div class="form-actions">
+
+            <button type="submit" class="post-btn">Create Post</button>
+        </div>
     </form>
 
-    <!-- YOUR POSTS -->
     <h2>Your Posts</h2>
     <div class="post">
         <% user.post.forEach(pos=> { %>
@@ -198,29 +330,32 @@
                     <%= pos.content %>
                 </p>
                 <div class="button-group">
-                    <a href="/edit/<%= pos._id %>" class="edit-btn">Edit</a>
+                    <a href="/edit/<%= pos._id %>" class="edit-btn" style="color: rgb(54, 250, 54); border-color: rgb(54, 250, 54);">Edit</a>
+                    <a href="/delete/<%= pos._id %>" class="edit-btn" style="color: red; border-color: red;">Delete</a>
                 </div>
             </div>
             <% }) %>
     </div>
 
-    <!-- OTHERS POSTS -->
-    <h2>Others Posts</h2>
+    <h2>Your Friends Posts</h2>
     <div class="post">
         <% Others.forEach(otherUser=> { %>
             <% if (otherUser.post && otherUser.post.length> 0) { %>
                 <% otherUser.post.forEach(pos=> { %>
                     <div class="box">
-                        <h4>
-                            <%= otherUser.Username %>
-                        </h4>
+                        <div style="display:flex; align-items:center;">
+                            <h4>
+                                <%= otherUser.Username %>
+                            </h4>
+                        </div>
+
                         <p>
                             <%= pos.content %>
                         </p>
 
-                        <div class="button-group like-btn">
+                        <div class="button-group">
                             <a href="/like/<%= pos._id %>" class="edit-btn">
-                                <%= pos.like ? pos.like.length : 0 %> <span>❤️</span>
+                                <%= pos.like ? pos.like.length : 0 %> ❤️
                             </a>
                             <a href="/likes/<%= pos._id %>" class="edit-btn">
                                 Likes
@@ -231,7 +366,7 @@
                         <% } %>
                             <% }) %>
     </div>
-
+    <a href="/logout" class="logout-btn">Logout</a>
 </body>
 
 </html>
